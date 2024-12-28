@@ -1,7 +1,18 @@
-
 Human Activity Recognition Using Deep Learning
 Overview
 This project focuses on Human Activity Recognition (HAR) using deep learning models trained on image data. The aim is to classify various human activities, such as "sitting," "hugging," and "using a laptop," using Convolutional Neural Networks (CNNs). The project demonstrates the use of CNNs for image classification tasks and explores optimization techniques to enhance performance.
+
+preprocessing
+Link to dataset : https://dphi-live.s3.eu-west-1.amazonaws.com/dataset/Human+Action+Recognition-20220526T101201Z-001.zip
+
+Loading Dataset and CSV Files: Paths to the training and testing images are specified. The CSV files that contain the labels (Training_set.csv, Testing_set.csv) are read using pandas.
+Dataset Exploration: Displaying the first few rows of the training dataset and checking for missing values, duplicates, and dataset statistics. From the output, there are 12,600 records, and no missing or duplicate values.
+Visualizing Sample Images: Images from different classes are displayed in a 3x5 grid to give an overview of the dataset. A histogram of the class distribution is generated to show that there is no class imbalance.
+Outlier Detection (Z-Score Method): Using the z-score method, the dataset is checked for outliers, and the result shows that there are no rows with outliers in the numerical data.
+Image Intensity Distribution: A pixel intensity histogram for grayscale images is plotted, showing that most pixels have lower intensity values, with a significant peak near the maximum intensity (indicating possibly bright areas in the images). Z-scores of pixel intensities are calculated to detect outlier pixels, which result in zero outliers.
+Edge Intensity Distribution: The Sobel edge detection filter is applied to the images, and a histogram of mean edge intensities is plotted. The distribution shows that most images have low to moderate edge intensity, indicating relatively smooth regions in the dataset.
+Data Augmentation: Data augmentation is applied to the training images using transformations like resizing, random horizontal flips, rotations, and color jittering to improve the diversity of the training data. Validation images are resized but not augmented (no transformation applied).
+Custom Dataset Class and DataLoader: A custom PyTorch dataset class (CustomImageDataset) is defined to load the images and their labels, with optional transformations applied to the images. The training and validation sets are split, and DataLoader objects are created for both the training and validation datasets.
 
 Key Features
 Implementation of CNN-based deep learning models for HAR.
